@@ -4,6 +4,7 @@ using Sockets
 
 include("client.jl")
 include("enums.jl")
+include("errors.jl")
 include("types.jl")
 include("types_condition.jl")
 include("types_mutable.jl")
@@ -11,7 +12,7 @@ include("types_private.jl")
 include("wrapper.jl")
 include("reader.jl")          ; using .Reader: check_all, start_reader
 include("utils.jl")
-
+include("TickTypes.jl")
 
 """
     Connection()
