@@ -20,9 +20,8 @@ import ...Bar,
   ...funddist,
   ...fundtype,
   ...ns,
-  ...IbkrErrorMessage
-
-import InteractiveBrokers
+  ...IbkrErrorMessage,
+  ...TICK_TYPES
 
 """
     slurp(::Type{T}, it)
@@ -93,7 +92,7 @@ const process = Dict(
     size::Union{Float64,Nothing},
     mask::Int = it
 
-    InteractiveBrokers.forward(w, :tickPrice, tickerId, InteractiveBrokers.TICK_TYPES(ticktype), price, size, unmask(TickAttrib, mask))
+    InteractiveBrokers.forward(w, :tickPrice, tickerId, TICK_TYPES(ticktype), price, size, unmask(TickAttrib, mask))
   end,
 
   # TICK_SIZE
@@ -103,7 +102,7 @@ const process = Dict(
     ticktype::Int,
     size::Float64 = it
 
-    InteractiveBrokers.forward(w, :tickSize, tickerId, InteractiveBrokers.TICK_TYPES(ticktype), size)
+    InteractiveBrokers.forward(w, :tickSize, tickerId, TICK_TYPES(ticktype), size)
   end,
 
   # ORDER_STATUS
@@ -499,7 +498,7 @@ const process = Dict(
     # (delta, gamma, vega, theta) == -2 means NA
     replace!(view(v, [2, 5, 6, 7]), -2 => nothing)
 
-    InteractiveBrokers.forward(w, :tickOptionComputation, tickerId, InteractiveBrokers.TICK_TYPES(ticktype), tickAttrib, v...)
+    InteractiveBrokers.forward(w, :tickOptionComputation, tickerId, TICK_TYPES(ticktype), tickAttrib, v...)
   end,
 
   # TICK_GENERIC
@@ -509,7 +508,7 @@ const process = Dict(
     ticktype::Int,
     value::Float64 = it
 
-    InteractiveBrokers.forward(w, :tickGeneric, tickerId, InteractiveBrokers.TICK_TYPES(ticktype), value)
+    InteractiveBrokers.forward(w, :tickGeneric, tickerId, TICK_TYPES(ticktype), value)
   end,
 
   # TICK_STRING
@@ -519,7 +518,7 @@ const process = Dict(
     ticktype::Int,
     value::String = it
 
-    InteractiveBrokers.forward(w, :tickString, tickerId, InteractiveBrokers.TICK_TYPES(ticktype), value)
+    InteractiveBrokers.forward(w, :tickString, tickerId, TICK_TYPES(ticktype), value)
   end,
 
   # TICK_EFP
@@ -528,7 +527,7 @@ const process = Dict(
     tickerId::Int,
     ticktype::Int = it
 
-    InteractiveBrokers.forward(w, tickEFP, tickerId, InteractiveBrokers.TICK_TYPES(ticktype), slurp((Float64, String, Float64, Int, String, Float64, Float64), it)...)
+    InteractiveBrokers.forward(w, tickEFP, tickerId, TICK_TYPES(ticktype), slurp((Float64, String, Float64, Int, String, Float64, Float64), it)...)
   end,
 
   # CURRENT_TIME
