@@ -20,8 +20,9 @@ import ...Bar,
   ...funddist,
   ...fundtype,
   ...ns,
-  ...IbkrErrorMessage,
-  ...TICK_TYPES
+  ...IbkrErrorMessage
+
+  import InteractiveBrokers
 
 """
     slurp(::Type{T}, it)
