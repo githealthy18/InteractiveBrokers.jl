@@ -58,7 +58,7 @@ Start a new [`Task`](@ref) to process messages asynchronously.
 """
 function start_reader(ib, w, Tab=Dict)
 
-  Threads.@spawn  begin
+  @async  begin
             try
               while true
                 check_msg(ib, w, Tab)
