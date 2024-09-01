@@ -12,7 +12,7 @@ tickEFP(tickerId::Int, tickType::String, basisPoints::Float64, formattedBasisPoi
 
 orderStatus(orderId::Int, status::String, filled::Float64, remaining::Float64, avgFillPrice::Float64, permId::Int, parentId::Int, lastFillPrice::Float64, clientId::Int, whyHeld::String, mktCapPrice::Float64)
 
-openOrder(orderId::Int, contract::Contract, order::Order, orderstate::OrderState)
+openOrder(orderId::Int, contract::Contract, order::AbstractIBOrder, orderstate::OrderState)
 
 openOrderEnd()
 
@@ -153,7 +153,7 @@ tickByTickMidPoint(reqId::Int, time::Int, midPoint::Float64)
 
 orderBound(orderId::Int, apiClientId::Int, apiOrderId::Int)
 
-completedOrder(contract::Contract, order::Order, orderState::OrderState)
+completedOrder(contract::Contract, order::AbstractIBOrder, orderState::OrderState)
 
 completedOrdersEnd()
 
