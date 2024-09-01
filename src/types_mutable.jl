@@ -31,7 +31,9 @@ Contract(; conId=        0,
                                        false, ns, ns, ns, ns, ns, ns, [], nothing)
 
 
-mutable struct Order
+abstract type AbstractIBOrder end
+
+mutable struct Order <: AbstractIBOrder
   orderId::Int
   clientId::Int
   permId::Int

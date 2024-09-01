@@ -72,7 +72,7 @@ end
 
 cancelMktData(ib::Connection, tickerId::Int) = req_simple(ib, 2, 2, tickerId) ### CANCEL_MKT_DATA
 
-function placeOrder(ib::Connection, id::Int, contract::Contract, order::Order)
+function placeOrder(ib::Connection, id::Int, contract::Contract, order::AbstractIBOrderOrder)
 
   o = enc()
 

@@ -32,7 +32,7 @@ bondContractDetails(reqId::Int, contractDetails::ContractDetails)
 
 contractDetailsEnd(reqId::Int)
 
-execDetails(reqId::Int, contract::Contract, execution::Execution)
+execDetails(reqId::Int, contract::Contract, execution::AbstractIBExecution)
 
 execDetailsEnd(reqId::Int)
 
