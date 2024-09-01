@@ -10,7 +10,9 @@ import ..AbstractCondition,
        ..MarketDataType,
        ..Order,
        ..ScannerSubscription,
-       ..WshEventData
+       ..WshEventData,
+       ..AbstractIBOrder,
+       ..AbstractIBExecution
 
 include("encoder.jl")
 
