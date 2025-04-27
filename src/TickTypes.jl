@@ -111,5 +111,6 @@ tickname(i) = string(TICK_TYPES(i))
     FINAL_IPO_LAST = 102
     DELAYED_YIELD_BID = 103
     DELAYED_YIELD_ASK = 104
+    AVERAGE_OPT_VOLUME = 105
 end
 end
